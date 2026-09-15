@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre%}{% endblock%} | NomDuSite</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+        <!-- ajouter classes Bootstrap comme navbar navbar-expand-lg etc -->
+
+            <div>
+            <!-- ajouter classes Bootstrap comme container -->
+
+                <a href="/">
+                    Nom du site
+                </a>
+
+                <a href="/ajout-carte">
+                    Ajout d'une carte
+                </a>
+
+                <a href="/collection">
+                    Collection
+                </a>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+{%block contenu%}{%endblock%}
