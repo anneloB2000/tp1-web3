@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block titre%}{% endblock%} | NomDuSite</title>
+    <title>{% block titre%}{% endblock%} | Pokemon TCG</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
-<body>
+<body class="container">
 
     <header>
-        <nav>
-        <!-- ajouter classes Bootstrap comme navbar navbar-expand-lg etc -->
 
-            <div>
-            <!-- ajouter classes Bootstrap comme container -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Pokemon TCG</a>
 
-                <a href="/">
-                    Nom du site
-                </a>
-
-                <a href="/ajout-carte">
-                    Ajout d'une carte
-                </a>
-
-                <a href="/collection">
-                    Collection
-                </a>
-
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/ajout-carte">Ajouter une carte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/collection">Collection personnelle</a>
+                    </li>
+                </ul>
             </div>
-
+            </div>
         </nav>
+
     </header>
 
 
-<main>
-{%block contenu%}{%endblock%}
-</main>
+    <main>
+        {%block contenu%}{%endblock%}
+    </main>
 
 
-<footer>
-@Anne-Laurie Bélanger
-@William Desmarquis
-</footer>
+    <footer>
+        <span>@Anne-Laurie Bélanger</span>
+        <span>@William Desmarquis</span>
+    </footer>
 
+
+</body>
+
+</html>
