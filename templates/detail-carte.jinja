@@ -1,2 +1,15 @@
+{% extends "base.jinja" %}
+
+{%block titre%}DETAILS CARTE{%endblock%}
 
 
+{%block contenu%}
+<h1>DETAILS CARTE</h1>
+
+<ul>
+<li>{{carte.numero_pokedex}}</li>
+<li>{{carte.nom}}</li>
+<li>{{carte.extension}}</li>
+</ul>
+
+{%endblock%}

@@ -8,8 +8,10 @@
 
 <li>
 {% for carte in collection_carte %}
-<ul><a href="/detail-carte?carte={{carte.id}}">{{carte.id_carte}}</a></ul>
+<ul><a href="/details-carte?id={{carte.id}}">{{carte.id_carte}}</a></ul>
 {% endfor %}
 </li>
 
 {%endblock%}
+
+href="/jeu?id={{j.id}}"
