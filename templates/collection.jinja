@@ -4,5 +4,12 @@
 
 
 {%block contenu%}
-<h1>TITRE COLLECTION</h1>
+<h1>COLLECTION</h1>
+
+<li>
+{% for carte in collection_carte %}
+<ul><a href="/detail-carte?carte={{carte.id}}">{{carte.id_carte}}</a></ul>
+{% endfor %}
+</li>
+
 {%endblock%}

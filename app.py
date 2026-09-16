@@ -18,7 +18,13 @@ def ajout_carte():
 
 @app.route('/collection')
 def collection():
-    return render_template('collection.jinja')
+    collection_carte = []
+
+    with bd.creer_connexion() as conn:
+        with conn.get_curseur() as curseur:
+            collection_carte = curseur.execute("select * from elements_collection")
+
+    return render_template('collection.jinja', collection_carte=collection_carte)
 
 
 
