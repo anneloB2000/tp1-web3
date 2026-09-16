@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
-<body class="container">
+<body>
 
     <header>
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" href="/">Pokemon TCG</a>
 
                 <ul class="navbar-nav">
@@ -32,14 +32,16 @@
     </header>
 
 
-    <main>
+    <main class="container">
         {%block contenu%}{%endblock%}
     </main>
 
 
     <footer>
-        <span>@Anne-Laurie Bélanger</span>
-        <span>@William Desmarquis</span>
+        <div class="container">
+            <span>@Anne-Laurie Bélanger</span>
+            <span>@William Desmarquis</span>
+        </div>
     </footer>
 
 
