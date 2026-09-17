@@ -1,0 +1,36 @@
+{% extends "base.jinja" %}
+
+{%block titre%}Créations{%endblock%}
+
+
+{%block contenu%}
+<h1>Créations</h1>
+
+{% if cartes|length == 0 %}
+        <p>Cet illustrateur n'a aucune création</p>
+    {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de sortie</th>
+                    <th scope="col">Rareté</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for carte in cartes %}
+                    <tr>
+                        <th scope="row">{{carte.nom}}</th>
+                        <td>{{carte.date_sortie}}</td>
+                        <td>{{carte.rarete}}</td>
+                        <td>{{carte.types}}</td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    {% endif %}
+
+
+{%endblock%}

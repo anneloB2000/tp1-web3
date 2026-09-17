@@ -1,0 +1,17 @@
+{% extends "base.jinja" %}
+
+{%block titre%}Illustrateurs{%endblock%}
+
+
+{%block contenu%}
+<h1>Illustrateurs</h1>
+
+<ul>
+    {% for illustrateur in illustrateurs%}
+    <li>
+    <a href="/creations?illustrateur={{illustrateur.illustrateur}}">{{illustrateur.illustrateur}}
+    </li>
+    {% endfor%}
+</ul>
+
+{%endblock%}

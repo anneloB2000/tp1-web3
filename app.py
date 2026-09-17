@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """Affiche la pahge d'accueil"""
     collection_carte = []
 
     with bd.creer_connexion() as conn:
@@ -21,11 +22,13 @@ def index():
 
 @app.route('/ajout-carte')
 def ajout_carte():
+    """Affiche la page d'ajout d'une carte"""
 
     return render_template('ajout-carte.jinja')
 
 @app.route('/collection')
 def collection():
+    """Affiche la"""
     collection_carte = []
 
     with bd.creer_connexion() as conn:
@@ -34,9 +37,6 @@ def collection():
             collection_carte = curseur.fetchall()
 
     return render_template('collection.jinja', collection_carte=collection_carte)
-
-
-
 
 @app.route('/details-carte')
 def details_carte():
@@ -56,4 +56,35 @@ def details_carte():
 
     return render_template('detail-carte.jinja', carte=carte)
 
-app.run(debug=True)
+@app.route('/illustrateurs')
+def illustrateurs():
+    """Affiche la page listant tous les illustrateurs"""
+    liste_illustrateurs = []
+
+    with bd.creer_connexion() as conn:
+        with conn.get_curseur() as curseur:
+            curseur.execute("select * from carte_pokemon group by illustrateur order by illustrateur desc limit 20")
+            liste_illustrateurs = curseur.fetchall()
+
+    return render_template('illustrateurs.jinja',illustrateurs=liste_illustrateurs)
+
+@app.route('/creations')
+def creations():
+    """Affiche toutes les créations d'un illustrateur"""
+    illustrateur = request.args.get('illustrateur', type=str)
+    cartes = {}
+
+    with bd.creer_connexion() as conn:
+        with conn.get_curseur() as curseur:
+            curseur.execute(
+             'SELECT * FROM carte_pokemon WHERE illustrateur=%(illu)s LIMIT 30',
+                {
+                    'illu': illustrateur
+                }
+            )
+            cartes = curseur.fetchall()
+
+    return render_template('creations.jinja', cartes=cartes)
+
+if __name__ == "__main__":
+    app.run(debug=True) 
