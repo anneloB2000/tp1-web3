@@ -14,13 +14,14 @@ def index():
 
     with bd.creer_connexion() as conn:
         with conn.get_curseur() as curseur:
-            curseur.execute("select * from elements_collection limit 5")
+            curseur.execute("select * from elements_collection where statut = 1 limit 5")
             collection_carte = curseur.fetchall()
 
     return render_template('index.jinja', collection_carte=collection_carte)
 
 @app.route('/ajout-carte')
 def ajout_carte():
+
     return render_template('ajout-carte.jinja')
 
 @app.route('/collection')
