@@ -5,4 +5,11 @@
 
 {%block contenu%}
 <h1>TITRE INDEX</h1>
+
+<li>
+{% for carte in collection_carte %}
+<ul><a href="/details-carte?id={{carte.id}}">{{carte.id_carte}}</a></ul>
+{% endfor %}
+</li>
+
 {%endblock%}
