@@ -10,7 +10,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.jinja')
+    collection_carte = []
+
+    with bd.creer_connexion() as conn:
+        with conn.get_curseur() as curseur:
+            curseur.execute("select * from elements_collection limit 5")
+            collection_carte = curseur.fetchall()
+
+    return render_template('index.jinja', collection_carte=collection_carte)
 
 @app.route('/ajout-carte')
 def ajout_carte():
